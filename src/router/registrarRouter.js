@@ -79,7 +79,7 @@ router.get("/get-student-grades", async (req, res) => {
 router.get("/get-user-profile/:studentId", async (req, res) => {
   try {
     const studentId = req.params.studentId;
-    const user = await userModel.findById(studentId);
+    const user = await userModel.findOne({studentId});
     return res.json(user);
   } catch (error) {
     console.log(error);
